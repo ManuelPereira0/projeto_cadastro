@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Usuarios Cadastrados</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <style>
+            table#tabela {
+                border: 1px solid;
+                border-spacing: 0px;
+            }
+            table#tabela th {
+                border: 1px solid;
+                padding: 10px;
+                text-align: center;
+            }
+            table#tabela td {
+                border: 1px solid #000000;
+                padding: 10px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <table id='tabela'>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Telefone</th>
+                <th>E-mail</th>
+            </tr>
+            {% for usuario in usuarios %}
+            <tr>
+                <td>{{usuario.id}}</td>
+                <td>{{usuario.nome}}</td>
+                <td>{{usuario.telefone}}</td>
+                <td>{{usuario.email}}</td>
+                <td><a href="{% url 'editar' usuario.id %}"><button>Editar Cadastro</button></a></td>
+                <td><a href="{% url 'deletar_usuarios' usuario.id %}"><button>Remover Cadastro</button></a></td>
+            </tr>
+            {% endfor %}
+        </table>
+        <a href="/"><button>Novo Cadastro</button></a>
+    </body>
+</html>

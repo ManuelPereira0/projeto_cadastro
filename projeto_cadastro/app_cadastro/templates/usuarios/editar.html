@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Cadastro de Usuários</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <h1>Editar Usuário</h1>
+        <form method='POST' action="{% url 'editar_usuarios' usuario.id%}">
+            {% csrf_token %}
+            <fieldset id='cadastro'>
+                <legend> Editar Cadastro</legend>
+                <p><label for='cNome'>Nome </label><input type='text' name='tNome' value = "{{usuario.nome}}"></p>
+                <p><label for='cTel'>Telefone </label><input type='text' name='tCel' value = "{{usuario.telefone}}"></p>
+                <p><label for="cEmail">E-mail </label> <input type="email" name="tEmail" value = "{{usuario.email}}"></p>
+                <p><input type='submit' value=' Editar Cadastro'></p>
+            </fieldset>
+            
+        </form>
+        
+    </body>
+</html>
